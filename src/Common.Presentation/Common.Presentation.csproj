@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <DockerBuild>false</DockerBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.0" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" Version="8.0.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.0" >
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(DockerBuild)'=='false'">
+    <ProjectReference Include="..\..\..\TheGoodFramework\src\CleanArchitecture\Presentation\TGF.CA.Presentation\TGF.CA.Presentation.csproj" />
+    <ProjectReference Include="..\Common.Application\Common.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(DockerBuild)'=='true'">
+    <ProjectReference Include="../Common.Application/Common.Application.csproj" />
+    <PackageReference Include="TGF.CA.Presentation" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>

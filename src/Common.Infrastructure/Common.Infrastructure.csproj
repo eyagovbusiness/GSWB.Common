@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <DockerBuild>false</DockerBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(DockerBuild)'=='false'">
+    <ProjectReference Include="..\Common.Application\Common.Application.csproj" />
+    <ProjectReference Include="..\..\..\TheGoodFramework\src\CleanArchitecture\Infrastructure\Communication\TGF.CA.Infrastructure.Communication\TGF.CA.Infrastructure.Communication.csproj" />
+    <ProjectReference Include="..\..\..\TheGoodFramework\src\CleanArchitecture\Infrastructure\Persistence\DB\TGF.CA.Infrastructure.DB.PostgreSQL\TGF.CA.Infrastructure.DB.PostgreSQL.csproj" />
+    <ProjectReference Include="..\..\..\TheGoodFramework\src\CleanArchitecture\Infrastructure\Security\TGF.CA.Infrastructure.Identity\TGF.CA.Infrastructure.Identity.csproj" />
+    <ProjectReference Include="..\..\..\TheGoodFramework\src\CleanArchitecture\Infrastructure\Security\TGF.CA.Infrastructure.Secrets\TGF.CA.Infrastructure.Secrets.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(DockerBuild)'=='true'">
+    <ProjectReference Include="../Common.Application/Common.Application.csproj" />
+    <PackageReference Include="TGF.CA.Infrastructure.Communication" Version="1.0.0"/>
+    <PackageReference Include="TGF.CA.Infrastructure.DB.PostgreSQL" Version="1.0.0"/>
+    <PackageReference Include="TGF.CA.Infrastructure.Identity" Version="1.0.0"/>
+    <PackageReference Include="TGF.CA.Infrastructure.Secrets" Version="1.0.0"/>
+  </ItemGroup>
+  
+</Project>
