@@ -6,7 +6,7 @@
     /// </summary>
     public static class ServicesDiscoveryNames
     {
-        public const string Mandrill = "Mandril";
+        public const string SwarmBot = "SwarmBot";
         public const string Members = "Members";
     }
 }
