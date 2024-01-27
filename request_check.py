@@ -2,13 +2,10 @@ import requests
 import base64
 import os
 
-def get_env_variable(variable_name):
-    value = os.environ.get(variable_name)
-    if value is None:
-        raise ValueError(f"Environment variable {variable_name} is not set.")
-    return value
 
-env = get_env_variable('ENV')
+username = os.environ.get('USER')
+token   = os.environ.get('TOKEN')
+env     = os.environ.get('ENV')
 url_base  = 'https://jenkins.guildswarm.org'
 url_crumb = f'{url_base}/crumbIssuer/api/json'
 url_jobs  = f'{url_base}/job/base-images/job/backend/job/{env}/job/microservices/api/json'
@@ -32,9 +29,7 @@ def jobBuild(list, headersRequest):
         except requests.exceptions.RequestException as e:
             print(f"Error: {e}")
 # Get Crumb issuer
-def getCrumb():
-    username = get_env_variable('USER')
-    token = get_env_variable('TOKEN')
+def getCrumb(username, token):
     credentials = f'{username}:{token}'
     base64_credentials = base64.b64encode(credentials.encode('utf-8')).decode('utf-8')
     headers = {
@@ -48,9 +43,10 @@ def getCrumb():
         return crumbField, base64_credentials
     except requests.exceptions.RequestException as e:
         print(f"Error: {e}")
+        return None, None
 # Main :)
 def main():
-    crumb, creds=getCrumb()
+    crumb, creds=getCrumb(username, token)
     headersRequest = {
         'Authorization': f'Basic {creds}',
         'Jenkins-Crumb': f'{crumb}',
