@@ -74,21 +74,22 @@ pipeline {
                         }
                     }
                 }
-        stage('Trigger Jobs'){
-            agent{label 'python-3.11.6'}{
-                steps {
-                    container('pytainer'){
-                        withCredentials([usernamePassword(credentialsId: 'automation', passwordVariable: 'TOKEN', usernameVariable: 'USER')]) {
-                            script {
-                                // Execute the Python script
-                                sh "python3 request_checky.py "
-                                }
-                            }
+        stage('Trigger Jobs') {
+            agent {
+                label 'python-3.11.6'
+            }
+            steps {
+                script {
+                    container('pytainer') {
+                        withCredentials([usernamePassword(credentialsId: 'your-credentials-id', passwordVariable: 'TOKEN', usernameVariable: 'USER')]) {
+                            // Execute the Python script
+                            sh "python3 request_checky.py"
                         }
                     }
                 }
             }
-        }  
+        }
+    }
     post {
         always{
             sh 'rm -rf *'
