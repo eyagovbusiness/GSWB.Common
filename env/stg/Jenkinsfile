@@ -6,6 +6,8 @@ pipeline {
     environment {
         REGISTRY='registry.guildswarm.org'
         ENV="STG"
+        USER=credentials('user_auto')
+        TOKEN=credentials('token_auto')
         ENVIRONMENT='staging'
         REPO='staging'
         IMAGE='common'
@@ -81,11 +83,9 @@ pipeline {
             steps {
                 script {
                     container('pytainer') {
-                        withCredentials([usernamePassword(credentialsId: 'automation', passwordVariable: 'TOKEN', usernameVariable: 'USER')]) {
                             sh 'pwd'
                             // Execute the Python script
                             sh "python3 request_check.py"
-                        }
                     }
                 }
             }
