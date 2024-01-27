@@ -81,7 +81,7 @@ pipeline {
             steps {
                 script {
                     container('pytainer') {
-                        withCredentials([usernamePassword(credentialsId: 'your-credentials-id', passwordVariable: 'TOKEN', usernameVariable: 'USER')]) {
+                        withCredentials([usernamePassword(credentialsId: 'automation', passwordVariable: 'TOKEN', usernameVariable: 'USER')]) {
                             // Execute the Python script
                             sh "python3 request_checky.py"
                         }
