@@ -83,9 +83,8 @@ pipeline {
             steps {
                 script {
                     container('pytainer') {
-                            sh 'pwd'
-                            // Execute the Python script
-                            sh "python3 request_check.py"
+                        sh 'export PYTHONUNBUFFERED=1'
+                        sh "python3 request_check.py"
                     }
                 }
             }
