@@ -11,7 +11,7 @@ namespace Members.API.Validation
         public SortByValidator()
         {
             RuleFor(x => x)
-                .NotEmpty().WithErrorCode(CommonPresentationErrors.Validation.SortBy.SortByEmpty)
+                .NotEmpty().WithErrorCode(CommonPresentationErrors.Validation.SortBy.SortByEmpty_Code)
                 .Must(BeAValidProperty).WithROPError(CommonPresentationErrors.Validation.SortBy.SortByInvalid);
         }
 
