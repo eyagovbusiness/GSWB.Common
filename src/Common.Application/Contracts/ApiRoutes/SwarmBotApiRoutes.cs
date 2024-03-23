@@ -24,6 +24,8 @@ namespace SwarmBot.Application
         public const string channels_categories_delete = "channels/categories/delete";
 
         public const string sc_tools_list_ships = "scTools/listShip";
+
+        public const string testers_is_tester = "testers/isTester";
     }
 
 }
