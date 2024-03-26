@@ -1,5 +1,5 @@
 ﻿
-namespace SwarmBot.Application
+namespace Common.Infrastructure.Communication.ApiRoutes
 {
     public struct SwarmBotApiRoutes
     {

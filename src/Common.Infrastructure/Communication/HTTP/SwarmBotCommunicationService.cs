@@ -1,6 +1,6 @@
-﻿using Common.Application;
+﻿using Common.Application.Contracts.Services;
 using Common.Application.DTOs.Discord;
-using SwarmBot.Application;
+using Common.Infrastructure.Communication.ApiRoutes;
 using TGF.CA.Infrastructure.Communication.Http;
 using TGF.CA.Infrastructure.Discovery;
 using TGF.Common.ROP.HttpResult;

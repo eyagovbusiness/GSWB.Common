@@ -1,7 +1,7 @@
 ﻿using Common.Application.DTOs.Discord;
 using TGF.Common.ROP.HttpResult;
 
-namespace Common.Application
+namespace Common.Application.Contracts.Services
 {
     /// <summary>
     /// Provides services for communicating with the SwarmBot API.
