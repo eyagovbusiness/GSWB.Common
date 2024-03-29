@@ -2,8 +2,9 @@
 {
     public struct EventsApiRoutes
     {
-        #region Endpoints
+        #region Event Endpoints
         public const string events_new = "events/new";
+        public const string events_list = "events/list";
         #endregion
 
     }
