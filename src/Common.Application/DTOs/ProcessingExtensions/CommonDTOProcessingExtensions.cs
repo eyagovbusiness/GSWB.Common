@@ -1,4 +1,6 @@
-﻿using Common.Domain.ValueObjects;
+﻿using Common.Application.DTOs.Members;
+using Common.Application.DTOs.Roles;
+using Common.Domain.ValueObjects;
 
 namespace Common.Application.DTOs.ProcessingHelpers
 {

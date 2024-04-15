@@ -13,9 +13,9 @@ namespace Common.Domain.ValueObjects
         /// </summary>
         AccessEvents = 1,
         /// <summary>
-        /// Can create events.
+        /// Can create and manage events.
         /// </summary>
-        CreateEvents = 1 << 1,// 2^1 =2
+        ManageEvents = 1 << 1,// 2^1 =2
         /// <summary>
         /// Can accept external in-game service requests.
         /// </summary>
