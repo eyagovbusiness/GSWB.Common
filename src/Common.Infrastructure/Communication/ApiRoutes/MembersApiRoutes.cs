@@ -18,6 +18,7 @@
 
         #region PrivateEndpoints
         public const string private_members_getByDiscordUserId = "private/members/getByDiscordUserId";
+        public const string private_members_getPermissions= "private/members/getPermissions";
         public const string private_members_addNew = "private/members/addNew";
         public const string private_members_update = "private/members/update";
         #endregion
