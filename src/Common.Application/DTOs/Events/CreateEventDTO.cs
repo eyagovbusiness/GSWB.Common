@@ -7,5 +7,5 @@ using System.Threading.Tasks;
 
 namespace Common.Application.DTOs.Events
 {
-    public record CreateEventDTO(EventInformationDTO EventInformation, IEnumerable<Guid> EventRoleList, CategoryChannelTemplateDTO DiscordChannelsSetup, Guid MemberIdCreator);
+    public record CreateEventDTO(EventInformationDTO EventInformation, IEnumerable<Guid> EventRoleList, CategoryChannelTemplateDTO DiscordChannelsSetup);
 }
