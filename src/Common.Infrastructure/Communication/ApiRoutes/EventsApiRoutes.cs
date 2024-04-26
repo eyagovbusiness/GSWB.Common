@@ -3,11 +3,8 @@
     public struct EventsApiRoutes
     {
         #region Event Endpoints
-        public const string events_new = "events/new";
-        public const string events_list = "events/list";
-
-        public const string events_addManagers = "events/addManagers";
-        public const string events_deleteManagers = "events/deleteManagers";
+        public const string events = "events";
+        public const string events_managers = "events/{eventId}/managers";
         #endregion
 
     }

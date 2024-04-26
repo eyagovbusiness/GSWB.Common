@@ -4,31 +4,24 @@
     {
         #region MeEndpoints
         public const string members_me = "members/me";
-        public const string members_me_update = "members/me/update";
-        public const string members_me_delete = "members/me/delete";
-        public const string members_me_getVerifyInfo = "members/me/getVerifyInfo";
-        public const string members_me_refreshVerifyCode = "members/me/refreshVerifyCode";
-        public const string members_me_verifyGameHandle = "members/me/verifyGameHandle";
+        public const string members_me_verify = "members/me/verify";
         #endregion
 
         #region MembersEndpoints
-        public const string members_list = "members/list";
+        public const string members = "members";
         public const string members_count = "members/count";
         #endregion
 
         #region PrivateEndpoints
-        public const string private_members_getByDiscordUserId = "private/members/getByDiscordUserId";
-        public const string private_members_getPermissions= "private/members/getPermissions";
-        public const string private_members_addNew = "private/members/addNew";
-        public const string private_members_update = "private/members/update";
+        public const string private_members = "private/members";
+        public const string private_members_discordUserId = "private/members/{discordUserId}";
+        public const string private_members_permissions = "private/members/{memberId}/permissions";
         #endregion
 
         #region RoleEndpoints
-        public const string roles_syncRolesWithDiscord = "roles/syncRolesWithDiscord";
-        public const string roles_getRoles = "roles/getRoles";
-        public const string roles_update = "roles/update";
+        public const string roles_discordSync = "roles/discord-sync";
+        public const string roles = "roles";
         #endregion
-
 
     }
 }

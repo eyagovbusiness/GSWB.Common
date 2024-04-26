@@ -26,7 +26,7 @@ namespace Common.Infrastructure.Communication.HTTP
             => await GetAsync<DiscordProfileDTO>(_serviceName, $"{SwarmBotApiRoutes.members_profile}?discordUserId={aDiscordUserId}", aCancellationToken);
 
         public async Task<IHttpResult<IEnumerable<DiscordRoleDTO>>> GetDiscordRoleList(CancellationToken aCancellationToken = default)
-            => await GetAsync<IEnumerable<DiscordRoleDTO>>(_serviceName, SwarmBotApiRoutes.roles_serverRoles, aCancellationToken);
+            => await GetAsync<IEnumerable<DiscordRoleDTO>>(_serviceName, SwarmBotApiRoutes.roles, aCancellationToken);
 
     }
 }

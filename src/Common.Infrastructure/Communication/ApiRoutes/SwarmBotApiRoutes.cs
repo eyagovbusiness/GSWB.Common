@@ -3,29 +3,25 @@ namespace Common.Infrastructure.Communication.ApiRoutes
 {
     public struct SwarmBotApiRoutes
     {
-        public const string users_exist = "users/exist";
-        public const string users_isVerified = "users/isVerified";
-        public const string users_creationDate = "users/creationDate";
+        public const string users_exist = "users/{userId}/exist";
+        public const string users_isVerified = "users/{userId}/is-verified";
+        public const string users_creationDate = "users/{userId}/creation-date";
 
-        public const string members_numberOnline = "members/numberOnline";
-        public const string members_profile = "members/profile";
-        public const string members_roles = "members/roles";
+        public const string members_countOnline = "members/count-online";
+        public const string members_profile = "members/{discordUserId}/profile";
+        public const string members_roles = "members/{discordUserId}/roles";
 
-        public const string roles_create = "roles/create";
-        public const string roles_serverRoles = "roles/serverRoles";
-        public const string roles_assignToMemberList = "roles/assignToMemberList";
-        public const string roles_revokeForMemberList = "roles/revokeForMemberList";
-        public const string roles_delete = "roles/delete";
+        public const string roles = "roles";
+        public const string roles_assign = "roles/{roleId}/assign";
+        public const string roles_revoke = "roles/{roleId}/revoke";
 
-        public const string channels_categories_getId = "channels/categories/getId";
-        public const string channels_categories_create = "channels/categories/create";
-        public const string channels_categories_addMemberList = "channels/categories/addMemberList";
-        public const string channels_categories_update = "channels/categories/update";
-        public const string channels_categories_delete = "channels/categories/delete";
+        public const string channels_categories_byName = "channels/categories/by-name/{categoryName}";
+        public const string channels_categories_members = "channels/categories/{categoryId}/members";
+        public const string channels_categories = "channels/categories";
 
-        public const string sc_tools_list_ships = "scTools/listShip";
+        public const string scTools_listShips = "scTools/ships";
 
-        public const string testers_is_tester = "testers/isTester";
+        public const string testers = "testers/{discordUserId}";
     }
 
 }

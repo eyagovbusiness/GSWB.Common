@@ -2,11 +2,11 @@
 {
     public struct APIGatewayApiRoutes
     {
-        public const string auth_signIn = "auth/signIn";
-        public const string auth_signUp = "auth/signUp";
-        public const string auth_signOut = "auth/signOut";
+        public const string auth_signIn = "auth/sign-in";
+        public const string auth_signUp = "auth/sign-up";
+        public const string auth_signOut = "auth/sign-out";
         public const string auth_token = "auth/token";
-        public const string auth_refreshToken = "auth/refreshToken";
+        public const string auth_token_refresh = "auth/token/refresh";
 
     }
 }
