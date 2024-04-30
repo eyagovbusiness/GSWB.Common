@@ -19,7 +19,7 @@ namespace Common.Infrastructure.Communication.ApiRoutes
         public const string channels_categories_members = "channels/categories/{categoryId}/members";
         public const string channels_categories = "channels/categories";
 
-        public const string scTools_listShips = "scTools/ships";
+        public const string scTools_listShips = "sc-tools/ships";
 
         public const string testers = "testers/{discordUserId}";
     }
