@@ -19,11 +19,11 @@ namespace Common.Infrastructure.Communication.HTTP
         : base(aServiceDiscovery, aHttpClientFactory)
             => _serviceName = ServicesDiscoveryNames.SwarmBot;
 
-        public async Task<IHttpResult<IEnumerable<DiscordRoleDTO>>> GetDiscordUserRoleList(string aDiscordUserId, CancellationToken aCancellationToken = default)
-            => await GetAsync<IEnumerable<DiscordRoleDTO>>(_serviceName, $"{SwarmBotApiRoutes.members_roles}?discordUserId={aDiscordUserId}", aCancellationToken);
+        public async Task<IHttpResult<IEnumerable<DiscordRoleDTO>>> GetDiscordUserRoleList(string aId, CancellationToken aCancellationToken = default)
+            => await GetAsync<IEnumerable<DiscordRoleDTO>>(_serviceName, SwarmBotApiRoutes.members_roles.Replace("{id}", aId.ToString()), aCancellationToken);
 
-        public async Task<IHttpResult<DiscordProfileDTO>> GetMemberProfileFromId(string aDiscordUserId, CancellationToken aCancellationToken = default)
-            => await GetAsync<DiscordProfileDTO>(_serviceName, $"{SwarmBotApiRoutes.members_profile}?discordUserId={aDiscordUserId}", aCancellationToken);
+        public async Task<IHttpResult<DiscordProfileDTO>> GetMemberProfileFromId(string aId, CancellationToken aCancellationToken = default)
+            => await GetAsync<DiscordProfileDTO>(_serviceName, SwarmBotApiRoutes.members_profile.Replace("{id}", aId.ToString()), aCancellationToken);
 
         public async Task<IHttpResult<IEnumerable<DiscordRoleDTO>>> GetDiscordRoleList(CancellationToken aCancellationToken = default)
             => await GetAsync<IEnumerable<DiscordRoleDTO>>(_serviceName, SwarmBotApiRoutes.roles, aCancellationToken);

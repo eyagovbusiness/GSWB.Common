@@ -14,14 +14,14 @@ namespace Common.Infrastructure.Communication.HTTP
     {
         private readonly string _serviceName = ServicesDiscoveryNames.Members;
 
-        public async Task<IHttpResult<MemberDTO>> GetExistingMember(ulong aDiscordUserId, CancellationToken aCancellationToken = default)
-        => await GetAsync<MemberDTO>(_serviceName, MembersApiRoutes.private_members_discordUserId.Replace("{discordUserId}", aDiscordUserId.ToString()), aCancellationToken);
+        public async Task<IHttpResult<MemberDTO>> GetExistingMember(ulong aId, CancellationToken aCancellationToken = default)
+        => await GetAsync<MemberDTO>(_serviceName, MembersApiRoutes.private_members_discordUserId.Replace("{id}", aId.ToString()), aCancellationToken);
 
         public async Task<IHttpResult<MemberDetailDTO>> SignUpNewMember(SignUpDataDTO? aSignUpDataDTO, DiscordCookieUserInfo aDiscordCookieUserInfo, CancellationToken aCancellationToken = default)
         => await PutAsync<CreateMemberDTO, MemberDetailDTO>(_serviceName, MembersApiRoutes.members, new CreateMemberDTO(aSignUpDataDTO, aDiscordCookieUserInfo), aCancellationToken);
 
-        public async Task<IHttpResult<PermissionsEnum>> GetMemberPermissions(Guid aMemberId, CancellationToken aCancellationToken = default)
-        => await GetAsync<PermissionsEnum>(_serviceName, MembersApiRoutes.private_members_permissions.Replace("{discordUserId}", aMemberId.ToString()), aCancellationToken);
+        public async Task<IHttpResult<PermissionsEnum>> GetMemberPermissions(Guid aId, CancellationToken aCancellationToken = default)
+        => await GetAsync<PermissionsEnum>(_serviceName, MembersApiRoutes.private_members_permissions.Replace("{id}", aId.ToString()), aCancellationToken);
 
     }
 }

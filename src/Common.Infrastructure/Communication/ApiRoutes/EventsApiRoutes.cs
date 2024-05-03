@@ -4,7 +4,7 @@
     {
         #region Event Endpoints
         public const string events = "events";
-        public const string events_managers = "events/{eventId}/managers";
+        public const string events_managers = "events/{id}/managers";
         #endregion
 
     }

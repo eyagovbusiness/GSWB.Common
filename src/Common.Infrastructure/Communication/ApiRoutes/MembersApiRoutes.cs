@@ -14,8 +14,8 @@
 
         #region PrivateEndpoints
         public const string private_members = "private/members";
-        public const string private_members_discordUserId = "private/members/{discordUserId}";
-        public const string private_members_permissions = "private/members/{memberId}/permissions";
+        public const string private_members_discordUserId = "private/members/{id}";
+        public const string private_members_permissions = "private/members/{id}/permissions";
         #endregion
 
         #region RoleEndpoints
