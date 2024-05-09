@@ -8,5 +8,6 @@
     {
         public const string SwarmBot = "SwarmBot";
         public const string Members = "Members";
+        public const string AllowMe = "AllowMe";
     }
 }

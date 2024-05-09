@@ -30,5 +30,14 @@ namespace Common.Application.Contracts.Services
         /// <returns>List of roles from Discord's server.</returns>
         Task<IHttpResult<IEnumerable<DiscordRoleDTO>>> GetDiscordRoleList(CancellationToken aCancellationToken = default);
 
+        /// <summary>
+        /// Fetches if a given discord user Id has the tester role in the GuildSwarm Discord server.
+        /// </summary>
+        /// <param name="aId">the dicscord user ID</param>
+        /// <param name="aCancellationToken"></param>
+        /// <returns>The discord user Id and 200 Success if it is a tester or 404 Error if no member with that id was found with the role tester.</returns>
+        public Task<IHttpResult<string>> GetIsTester(string aId, CancellationToken aCancellationToken = default);
+
+
     }
 }
