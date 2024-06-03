@@ -78,6 +78,11 @@ pipeline {
         always{
             sh 'rm -rf *'
         }
+        sucess{
+            build job: "base-images/backend/PRD/microservices/swarmbot/master", wait: false
+            build job: "base-images/backend/PRD/microservices/api-gateway/master", wait: false
+            build job: "base-images/backend/PRD/microservices/members/master", wait: false
+        }
         failure {
             script{
                 pga.slack_webhook("backend")
