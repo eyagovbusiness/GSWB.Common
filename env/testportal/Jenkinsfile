@@ -6,7 +6,7 @@ pipeline {
     environment {
         REGISTRY='registry.guildswarm.org'
         USER=credentials('user_auto')
-        ENV="testportal"
+        ENV="testportal" //for py script
         TOKEN=credentials('token_auto')
         ENVIRONMENT='testportal'
         REPO='testportal'
