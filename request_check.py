@@ -16,7 +16,7 @@ def builder(dataDict):
 
     for job in dataDict.get('jobs', []):
        url = job.get('url')
-       url_build=f'{url}job/integration/build'
+       url_build=f'{url}job/{env}/build'
        jobsToBuild.append(url_build)
     return jobsToBuild
        
