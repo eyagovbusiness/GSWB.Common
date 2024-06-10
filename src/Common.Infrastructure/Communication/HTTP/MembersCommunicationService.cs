@@ -18,7 +18,7 @@ namespace Common.Infrastructure.Communication.HTTP
         => await GetAsync<MemberDTO>(_serviceName, MembersApiRoutes.private_members_discordUserId.Replace("{id}", aId.ToString()), aCancellationToken);
 
         public async Task<IHttpResult<MemberDetailDTO>> SignUpNewMember(SignUpDataDTO? aSignUpDataDTO, DiscordCookieUserInfo aDiscordCookieUserInfo, CancellationToken aCancellationToken = default)
-        => await PutAsync<CreateMemberDTO, MemberDetailDTO>(_serviceName, MembersApiRoutes.members, new CreateMemberDTO(aSignUpDataDTO, aDiscordCookieUserInfo), aCancellationToken);
+        => await PutAsync<CreateMemberDTO, MemberDetailDTO>(_serviceName, MembersApiRoutes.private_members, new CreateMemberDTO(aSignUpDataDTO, aDiscordCookieUserInfo), aCancellationToken);
 
         public async Task<IHttpResult<PermissionsEnum>> GetMemberPermissions(Guid aId, CancellationToken aCancellationToken = default)
         => await GetAsync<PermissionsEnum>(_serviceName, MembersApiRoutes.private_members_permissions.Replace("{id}", aId.ToString()), aCancellationToken);
