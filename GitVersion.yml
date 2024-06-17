@@ -3,20 +3,20 @@ branches:
   main:
     tag: ''
     regex: main
-    source-branches: ['develop']
+    source-branches: ['integration']
     is-release-branch: true
-  develop:
+  integration:
     tag: dev
-    regex: develop
+    regex: integration
     source-branches: ['feature', 'bugfix']
     is-release-branch: false
   feature:
     tag: feat
     regex: feature[/-]
-    source-branches: ['develop']
+    source-branches: ['integration']
     is-release-branch: false
   bugfix:
     tag: fix
     regex: bugfix[/-]
-    source-branches: ['develop']
+    source-branches: ['integration']
     is-release-branch: false
