@@ -1,0 +1,22 @@
+mode: ContinuousDeployment
+branches:
+  main:
+    tag: ''
+    regex: main
+    source-branches: ['develop']
+    is-release-branch: true
+  develop:
+    tag: dev
+    regex: develop
+    source-branches: ['feature', 'bugfix']
+    is-release-branch: false
+  feature:
+    tag: feat
+    regex: feature[/-]
+    source-branches: ['develop']
+    is-release-branch: false
+  bugfix:
+    tag: fix
+    regex: bugfix[/-]
+    source-branches: ['develop']
+    is-release-branch: false
