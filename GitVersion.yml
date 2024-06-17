@@ -13,7 +13,7 @@ branches:
   feature:
     tag: feat
     regex: feature[/-]
-    source-branches: ['integration']
+    source-branches: ['integration'] 
     is-release-branch: false
   bugfix:
     tag: fix
