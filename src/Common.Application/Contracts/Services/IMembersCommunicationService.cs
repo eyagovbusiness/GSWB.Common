@@ -1,5 +1,4 @@
 ﻿using Common.Application.DTOs.Auth;
-using Common.Application.DTOs.Discord;
 using Common.Application.DTOs.Members;
 using Common.Domain.ValueObjects;
 using TGF.Common.ROP.HttpResult;
@@ -13,6 +12,9 @@ namespace Common.Application.Contracts.Services
     {
 
         Task<IHttpResult<MemberDTO>> GetExistingMember(ulong aDiscordUserId, CancellationToken aCancellationToken = default);
+
+        Task<IHttpResult<IEnumerable<MemberDetailDTO>>> GetMembersByIdList(IEnumerable<Guid> aMemberIdList, string aAccessToken, CancellationToken aCancellationToken = default);
+
         Task<IHttpResult<MemberDetailDTO>> SignUpNewMember(SignUpDataDTO? aSignUpDataDTO, DiscordCookieUserInfo aDiscordCookieUserInfo, CancellationToken aCancellationToken = default);
 
         /// <summary>
