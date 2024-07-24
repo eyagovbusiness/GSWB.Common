@@ -5,6 +5,7 @@ using System.Collections.Immutable;
 namespace Common.Application.DTOs.Members
 {
     public record MemberDetailDTO(
+        Guid Id,
         string DiscordGuildDisplayName,
         string AvatarUrl,
         string? GameHandle,
@@ -12,5 +13,5 @@ namespace Common.Application.DTOs.Members
         bool IsVerified,
         MemberStatusEnum Status,
         ImmutableArray<RoleDTO> Roles)
-    : MemberDTO(DiscordGuildDisplayName, GameHandle, Status, Roles);
+    : MemberDTO(Id, DiscordGuildDisplayName, GameHandle, Status, Roles);
 }

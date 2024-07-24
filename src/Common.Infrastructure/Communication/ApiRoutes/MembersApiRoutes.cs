@@ -9,6 +9,7 @@
 
         #region MembersEndpoints
         public const string members = "members";
+        public const string members_getByIds = "members/get-by-ids";
         public const string members_count = "members/count";
         #endregion
 
