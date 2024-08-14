@@ -67,15 +67,17 @@ pipeline {
                 }
             }
         }
-        stage('Trigger Jobs') {
-            steps {
-
-            }
-        }
     }
     post {
         always {
             sh 'rm -rf *'
+        }
+        success {
+            script {
+                build job: "backend/GSWB.ApiGateway/${REPO}", wait: false
+                build job: "backend/GSWB.SwarmBot/${REPO}", wait: false
+                build job: "backend/GSWB.Members/${REPO}", wait: false
+            }
         }
         failure {
             script {
