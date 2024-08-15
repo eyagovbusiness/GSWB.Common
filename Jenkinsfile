@@ -6,7 +6,8 @@ pipeline {
     }
     environment {
         REGISTRY='registry.guildswarm.org'
-        ENVIRONMENT='Testportal'
+        // TBD - ENVIRONMENT='Testportal' change to ENVIRONMENT='testportal' on software
+        //ENVIRONMENT='Testportal'
         REPO="${env.BRANCH_NAME}"
         IMAGE='common'
     }
