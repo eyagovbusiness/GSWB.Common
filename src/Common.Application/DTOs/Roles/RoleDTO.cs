@@ -2,5 +2,5 @@
 
 namespace Common.Application.DTOs.Roles
 {
-    public record RoleDTO(string Name, PermissionsEnum Permissions, RoleTypesEnum Type, string? Description, string DiscordRoleId, byte Position);
+    public record RoleDTO(string Name, PermissionsEnum Permissions, RoleTypesEnum Type, string? Description, string Id, byte Position);
 }
