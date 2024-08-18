@@ -1,4 +1,4 @@
-ARG BUILD_CONFIGURATION=Release ENVIRONMENT=testportal
+ARG BUILD_CONFIGURATION=Release ENVIRONMENT=development
 FROM registry.guildswarm.org/$ENVIRONMENT/the_good_framework:latest AS base
 
 # BUILD IMAGE
