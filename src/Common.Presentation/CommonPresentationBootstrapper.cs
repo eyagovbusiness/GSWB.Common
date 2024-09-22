@@ -25,7 +25,7 @@ namespace Common.Presentation
         //declare here more common use middlewares, but be careful declaring common middleware use order becauyse the order matters! and it may not be a common order that suits all the applications of this project.
         public static void UseCommonPresentation(this WebApplication aWebApplication)
         {
-            if (!aWebApplication.Environment.IsProduction() || !aWebApplication.Environment.IsStaging())
+            if (!aWebApplication.Environment.IsProduction() && !aWebApplication.Environment.IsStaging())
             {
                 aWebApplication.UseSwagger();
                 aWebApplication.UseSwaggerUI();
