@@ -1,5 +1,4 @@
-﻿
-namespace Common.Application.Guilds
+﻿namespace Common.Application.DTOs.Guilds
 {
     public record GuildDTO
     (
@@ -7,5 +6,5 @@ namespace Common.Application.Guilds
         string Name,
         string IconUrl
     );
-    
+
 }
