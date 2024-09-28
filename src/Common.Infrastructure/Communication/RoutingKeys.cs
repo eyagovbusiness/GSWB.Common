@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace SwarmBot.Infrastructure.Communication
 {
     public static class RoutingKeys
@@ -17,6 +12,10 @@ namespace SwarmBot.Infrastructure.Communication
         {
             public const string Member_revoke = "member.revoke";
             public const string Member_role_revoke = "member.roles.revoke";
+        }
+        public static class Guilds
+        {
+            public const string Guilds_sync = "guilds.sync";
         }
     }
 }
