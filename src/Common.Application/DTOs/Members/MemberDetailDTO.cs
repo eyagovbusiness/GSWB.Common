@@ -6,6 +6,7 @@ namespace Common.Application.DTOs.Members
 {
     public record MemberDetailDTO(
         Guid Id,
+        string GuildId,
         string DiscordGuildDisplayName,
         string AvatarUrl,
         string? GameHandle,
@@ -13,5 +14,5 @@ namespace Common.Application.DTOs.Members
         bool IsVerified,
         MemberStatusEnum Status,
         ImmutableArray<RoleDTO> Roles)
-    : MemberDTO(Id, DiscordGuildDisplayName, GameHandle, Status, Roles);
+    : MemberDTO(Id, GuildId, DiscordGuildDisplayName, GameHandle, Status, Roles);
 }

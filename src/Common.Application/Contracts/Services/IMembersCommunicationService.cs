@@ -15,7 +15,7 @@ namespace Common.Application.Contracts.Services
 
         Task<IHttpResult<IEnumerable<MemberDetailDTO>>> GetMembersByIdList(IEnumerable<Guid> aMemberIdList, string aAccessToken, CancellationToken aCancellationToken = default);
 
-        Task<IHttpResult<MemberDetailDTO>> SignUpNewMember(SignUpDataDTO? aSignUpDataDTO, DiscordCookieUserInfo aDiscordCookieUserInfo, CancellationToken aCancellationToken = default);
+        Task<IHttpResult<MemberDetailDTO>> SignUpNewMember(SignUpDataDTO? aSignUpDataDTO, DiscordCookieUserInfo aDiscordCookieUserInfo, string guildId, CancellationToken aCancellationToken = default);
 
         /// <summary>
         /// Gets the member's permissions via http request against the Members API.
