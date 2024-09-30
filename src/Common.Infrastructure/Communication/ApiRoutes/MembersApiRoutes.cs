@@ -4,6 +4,8 @@
     {
         #region MeEndpoints
         public const string members_me = "members/me";
+        public const string members_me_guilds = "members/me/guilds";
+        public const string members_me_guild = "members/me/guild";
         public const string members_me_verify = "members/me/verify";
         #endregion
 
@@ -24,5 +26,8 @@
         public const string roles = "roles";
         #endregion
 
+        #region GuildEndpoints
+
+        #endregion
     }
 }
