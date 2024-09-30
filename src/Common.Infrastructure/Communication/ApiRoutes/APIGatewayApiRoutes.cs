@@ -7,7 +7,6 @@
             public const string Route = "auth/sign-in";
             public const string OperationId = "auth_sign-in";
         }
-
         public struct Auth_testerSignIn
         {
             public const string Route = "auth/tester-sign-in";
@@ -26,10 +25,10 @@
             public const string OperationId = "auth_sign-out";
         }
 
-        public struct Auth_token
+        public struct Auth_token_guildId
         {
-            public const string Route = "auth/token";
-            public const string OperationId = "auth_token";
+            public const string Route = "auth/token/{guildId}";
+            public const string OperationId = "auth_token_gildId";
         }
 
         public struct Auth_token_refresh

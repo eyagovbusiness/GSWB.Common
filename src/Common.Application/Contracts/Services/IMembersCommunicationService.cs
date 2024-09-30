@@ -11,7 +11,9 @@ namespace Common.Application.Contracts.Services
     public interface IMembersCommunicationService
     {
 
-        Task<IHttpResult<MemberDTO>> GetExistingMember(ulong aId, CancellationToken aCancellationToken = default);
+        Task<IHttpResult<MemberDTO>> GetExistingMember(Guid id, CancellationToken aCancellationToken = default);
+
+        Task<IHttpResult<MemberDetailDTO>> GetExistingMember(string userId, string guildId, CancellationToken aCancellationToken = default);
 
         Task<IHttpResult<IEnumerable<MemberDetailDTO>>> GetMembersByIdList(IEnumerable<Guid> aMemberIdList, string aAccessToken, CancellationToken aCancellationToken = default);
 

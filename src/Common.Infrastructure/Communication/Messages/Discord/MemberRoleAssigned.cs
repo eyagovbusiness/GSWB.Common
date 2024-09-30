@@ -2,5 +2,5 @@
 
 namespace TGF.CA.Infrastructure.Communication.Messages.Discord
 {
-    public record MemberRoleAssigned(string DiscordUserId, DiscordRoleDTO[] DiscordRoleList);
+    public record MemberRoleAssigned(string UserId, string GuildId, DiscordRoleDTO[] DiscordRoleList);
 }

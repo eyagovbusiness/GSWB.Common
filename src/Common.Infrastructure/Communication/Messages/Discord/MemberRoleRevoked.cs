@@ -2,5 +2,5 @@
 
 namespace TGF.CA.Infrastructure.Communication.Messages.Discord
 {
-    public record MemberRoleRevoked(string DiscordUserId, DiscordRoleDTO[] DiscordRoleList);
+    public record MemberRoleRevoked(string UserId, string GuildId, DiscordRoleDTO[] DiscordRoleList);
 }

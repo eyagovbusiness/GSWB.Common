@@ -1,5 +1,5 @@
 ﻿
 namespace TGF.CA.Infrastructure.Communication.Messages.Discord
 {
-    public record MemberRenamed(string DiscordUserId, string NewDisplayName);
+    public record MemberRenamed(string UserId, string GuildId, string NewDisplayName);
 }

@@ -17,7 +17,8 @@
 
         #region PrivateEndpoints
         public const string private_members = "private/members";
-        public const string private_members_discordUserId = "private/members/{id}";
+        public const string private_members_id = "private/members/{id}";
+        public const string private_members_userId_guildId = "private/members/{userId}/{guildId}";
         public const string private_members_permissions = "private/members/{id}/permissions";
         #endregion
 

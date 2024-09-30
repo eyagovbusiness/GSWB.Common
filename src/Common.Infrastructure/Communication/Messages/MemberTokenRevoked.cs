@@ -3,6 +3,6 @@ using TGF.CA.Infrastructure.Communication.Messages;
 
 namespace Common.Infrastructure.Communication.Messages
 {
-    public record MemberTokenRevoked(string[] DiscordUserIdList)
+    public record MemberTokenRevoked(Guid[] MemberIdList)
         : IIntegrationMessageContent;
 }

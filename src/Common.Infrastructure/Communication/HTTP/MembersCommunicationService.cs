@@ -14,8 +14,11 @@ namespace Common.Infrastructure.Communication.HTTP
     {
         private readonly string _serviceName = ServicesDiscoveryNames.Members;
 
-        public async Task<IHttpResult<MemberDTO>> GetExistingMember(ulong aId, CancellationToken aCancellationToken = default)
-        => await GetAsync<MemberDTO>(_serviceName, MembersApiRoutes.private_members_discordUserId.Replace("{id}", aId.ToString()), aCancellationToken: aCancellationToken);
+        public async Task<IHttpResult<MemberDTO>> GetExistingMember(Guid id, CancellationToken aCancellationToken = default)
+        => await GetAsync<MemberDTO>(_serviceName, MembersApiRoutes.private_members_id.Replace("{id}", id.ToString()), aCancellationToken: aCancellationToken);
+
+        public async Task<IHttpResult<MemberDetailDTO>> GetExistingMember(string userId, string guildId, CancellationToken aCancellationToken = default)
+        => await GetAsync<MemberDetailDTO>(_serviceName, MembersApiRoutes.private_members_userId_guildId.Replace("{userId}", userId).Replace("{guildId}", guildId), aCancellationToken: aCancellationToken);
 
         public async Task<IHttpResult<IEnumerable<MemberDetailDTO>>> GetMembersByIdList(IEnumerable<Guid> aMemberIdList, string aAccessToken, CancellationToken aCancellationToken = default)
         => await PostAsync<IEnumerable<Guid>,IEnumerable<MemberDetailDTO>>(_serviceName, MembersApiRoutes.members_getByIds, aMemberIdList, aAccessToken, aCancellationToken);
