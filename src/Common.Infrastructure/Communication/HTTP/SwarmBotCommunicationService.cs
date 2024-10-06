@@ -1,5 +1,6 @@
 ﻿using Common.Application.Contracts.Services;
 using Common.Application.DTOs.Discord;
+using Common.Application.DTOs.Guilds;
 using Common.Infrastructure.Communication.ApiRoutes;
 using TGF.CA.Infrastructure.Communication.Http;
 using TGF.CA.Infrastructure.Discovery;
@@ -18,6 +19,9 @@ namespace Common.Infrastructure.Communication.HTTP
         public SwarmBotCommunicationService(IServiceDiscovery aServiceDiscovery, IHttpClientFactory aHttpClientFactory)
         : base(aServiceDiscovery, aHttpClientFactory)
             => _serviceName = ServicesDiscoveryNames.SwarmBot;
+
+        public async Task<IHttpResult<IEnumerable<GuildDTO>>> GetUserGuildList(string discordUserId, CancellationToken cancellationToken = default)
+            => await GetAsync<IEnumerable<GuildDTO>>(_serviceName, SwarmBotApiRoutes.private_users_guilds.Replace("{id}", discordUserId), aCancellationToken: cancellationToken);
 
         public async Task<IHttpResult<IEnumerable<DiscordRoleDTO>>> GetDiscordUserRoleList(string aId, CancellationToken aCancellationToken = default)
             => await GetAsync<IEnumerable<DiscordRoleDTO>>(_serviceName, SwarmBotApiRoutes.members_roles.Replace("{id}", aId.ToString()), aCancellationToken: aCancellationToken);

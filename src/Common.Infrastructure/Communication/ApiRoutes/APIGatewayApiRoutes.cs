@@ -13,6 +13,12 @@
             public const string OperationId = "auth_tester-sign-in";
         }
 
+        public struct Auth_user_guilds
+        {
+            public const string Route = "auth/user/guilds";
+            public const string OperationId = "auth_user_guilds";
+        }
+
         public struct Auth_signUp
         {
             public const string Route = "auth/sign-up";
