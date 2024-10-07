@@ -21,10 +21,11 @@ namespace Common.Application.Contracts.Services
         /// <summary>
         /// Gets a list of Discord user roles from the SwarmBot API.
         /// </summary>
-        /// <param name="aDiscordUserId">The Discord user ID.</param>
+        /// <param name="guildId">The Discord guild ID.</param>
+        /// /// <param name="guildId">The Discord user ID.</param>
         /// <param name="aCancellationToken">A token to monitor for cancellation requests.</param>
         /// <returns>A result containing a list of Discord roles IF ANY, otherwise an HTTP error.</returns>
-        Task<IHttpResult<IEnumerable<DiscordRoleDTO>>> GetDiscordUserRoleList(string aDiscordUserId, CancellationToken aCancellationToken = default);
+        Task<IHttpResult<IEnumerable<DiscordRoleDTO>>> GetMemberRoleList(string guildId, string userId, CancellationToken aCancellationToken = default);
 
         /// <summary>
         /// Gets the discord member nickname in the guild's server via http request against the SwarmBot API.
