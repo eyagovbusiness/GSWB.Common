@@ -3,6 +3,7 @@ using Common.Application.DTOs.Auth;
 using Common.Application.DTOs.Members;
 using Common.Domain.ValueObjects;
 using Common.Infrastructure.Communication.ApiRoutes;
+using TGF.CA.Application.DTOs;
 using TGF.CA.Infrastructure.Communication.Http;
 using TGF.CA.Infrastructure.Discovery;
 using TGF.Common.ROP.HttpResult;
@@ -21,7 +22,7 @@ namespace Common.Infrastructure.Communication.HTTP
         => await GetAsync<MemberDetailDTO>(_serviceName, MembersApiRoutes.private_members_userId_guildId.Replace("{userId}", userId).Replace("{guildId}", guildId), aCancellationToken: aCancellationToken);
 
         public async Task<IHttpResult<IEnumerable<MemberDetailDTO>>> GetMembersByIdList(IEnumerable<Guid> aMemberIdList, string aAccessToken, CancellationToken aCancellationToken = default)
-        => await PostAsync<IEnumerable<Guid>,IEnumerable<MemberDetailDTO>>(_serviceName, MembersApiRoutes.members_getByIds, aMemberIdList, aAccessToken, aCancellationToken);
+        => await PostAsync<IEnumerable<Guid>,IEnumerable<MemberDetailDTO>>(_serviceName, MembersApiRoutes.members_getByIds, aMemberIdList, [new(AuthenticationForwardingType.JWT, aAccessToken)], aCancellationToken);
 
 
         public async Task<IHttpResult<MemberDetailDTO>> SignUpNewMember(SignUpDataDTO? aSignUpDataDTO, DiscordCookieUserInfo aDiscordCookieUserInfo, string guildId, CancellationToken aCancellationToken = default)
