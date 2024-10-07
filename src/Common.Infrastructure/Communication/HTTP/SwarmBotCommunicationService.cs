@@ -23,8 +23,8 @@ namespace Common.Infrastructure.Communication.HTTP
         public async Task<IHttpResult<IEnumerable<GuildDTO>>> GetUserGuildList(string discordUserId, CancellationToken cancellationToken = default)
             => await GetAsync<IEnumerable<GuildDTO>>(_serviceName, SwarmBotApiRoutes.private_users_guilds.Replace("{id}", discordUserId), aCancellationToken: cancellationToken);
 
-        public async Task<IHttpResult<IEnumerable<DiscordRoleDTO>>> GetDiscordUserRoleList(string aId, CancellationToken aCancellationToken = default)
-            => await GetAsync<IEnumerable<DiscordRoleDTO>>(_serviceName, SwarmBotApiRoutes.members_roles.Replace("{id}", aId.ToString()), aCancellationToken: aCancellationToken);
+        public async Task<IHttpResult<IEnumerable<DiscordRoleDTO>>> GetMemberRoleList(string guildId, string userId, CancellationToken aCancellationToken = default)
+            => await GetAsync<IEnumerable<DiscordRoleDTO>>(_serviceName, SwarmBotApiRoutes.guilds_members_roles.Replace("{guildId}", guildId).Replace("{userId}", userId), aCancellationToken: aCancellationToken);
 
         public async Task<IHttpResult<DiscordProfileDTO>> GetMemberProfileFromId(string aId, CancellationToken aCancellationToken = default)
             => await GetAsync<DiscordProfileDTO>(_serviceName, SwarmBotApiRoutes.members_profile.Replace("{id}", aId.ToString()), aCancellationToken: aCancellationToken);

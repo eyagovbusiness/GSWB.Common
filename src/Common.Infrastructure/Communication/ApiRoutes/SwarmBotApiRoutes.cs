@@ -10,7 +10,7 @@ namespace Common.Infrastructure.Communication.ApiRoutes
 
         public const string members_countOnline = "members/count-online";
         public const string members_profile = "members/{id}/profile";
-        public const string members_roles = "members/{id}/roles";
+        public const string guilds_members_roles = "guilds/{guildId}/members/{userId}/roles";
 
         public const string roles = "roles/{id}";
         public const string roles_assign = "roles/{id}/assign";
