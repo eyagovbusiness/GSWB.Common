@@ -22,5 +22,18 @@
     <PackageReference Include="TGF.CA.Infrastructure.Identity" Version="1.0.0" />
     <PackageReference Include="TGF.CA.Infrastructure.Secrets" Version="1.0.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection.EntityFrameworkCore" Version="8.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\TheGoodFramework\src\CleanArchitecture\Infrastructure\Persistence\DB\TGF.CA.Infrastructure.DB\TGF.CA.Infrastructure.DB.csproj" />
+  </ItemGroup>
   
 </Project>

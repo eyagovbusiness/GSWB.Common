@@ -10,13 +10,11 @@ namespace Common.Application.Contracts.Services
     public interface ISwarmBotCommunicationService
     {
 
-
         /// <summary>
         /// Get the list of all <see cref="GuildDTO"/> of the user under the given discord user id.
         /// </summary>
         /// <returns>The list with all <see cref="GuildDTO"/> where both the bot and the provided discord user are in.</returns>
-        Task<IHttpResult<IEnumerable<GuildDTO>>> GetUserGuildList(string discordUserId, CancellationToken cancellationToken = default);
-
+        Task<IHttpResult<IEnumerable<GuildDTO>>> GetUserGuildList(string forwardingCookie, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets a list of Discord user roles from the SwarmBot API.
