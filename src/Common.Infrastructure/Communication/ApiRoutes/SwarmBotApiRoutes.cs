@@ -6,7 +6,7 @@ namespace Common.Infrastructure.Communication.ApiRoutes
         public const string users_exist = "users/{id}/exist";
         public const string users_isVerified = "users/{id}/is-verified";
         public const string users_creationDate = "users/{id}/creation-date";
-        public const string private_users_guilds = "private/users/{id}/guilds";
+        public const string private_users_me_guilds = "private/users/me/guilds";
 
         public const string members_countOnline = "members/count-online";
         public const string members_profile = "members/{id}/profile";
