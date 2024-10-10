@@ -23,6 +23,7 @@ namespace Common.Infrastructure.Communication.ApiRoutes
         public const string scTools_listShips = "sc-tools/ships";
 
         public const string private_testers = "private/testers/{id}";
+        public const string private_guilds_id_roles = "private/guilds/{id}/roles";
     }
 
 }
