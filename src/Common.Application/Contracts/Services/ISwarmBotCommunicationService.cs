@@ -37,7 +37,7 @@ namespace Common.Application.Contracts.Services
         /// Fetches the list of all guild server roles from Discord.
         /// </summary>
         /// <returns>List of roles from Discord's server.</returns>
-        Task<IHttpResult<IEnumerable<DiscordRoleDTO>>> GetDiscordRoleList(CancellationToken aCancellationToken = default);
+        Task<IHttpResult<IEnumerable<DiscordRoleDTO>>> GetGuildDiscordRoleList(string guildId, CancellationToken aCancellationToken = default);
 
         /// <summary>
         /// Fetches if a given discord user Id has the tester role in the GuildSwarm Discord server.

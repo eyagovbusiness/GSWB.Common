@@ -30,8 +30,8 @@ namespace Common.Infrastructure.Communication.HTTP
         public async Task<IHttpResult<DiscordProfileDTO>> GetMemberProfileFromId(string aId, CancellationToken aCancellationToken = default)
             => await GetAsync<DiscordProfileDTO>(_serviceName, SwarmBotApiRoutes.members_profile.Replace("{id}", aId.ToString()), aCancellationToken: aCancellationToken);
 
-        public async Task<IHttpResult<IEnumerable<DiscordRoleDTO>>> GetDiscordRoleList(CancellationToken aCancellationToken = default)
-            => await GetAsync<IEnumerable<DiscordRoleDTO>>(_serviceName, SwarmBotApiRoutes.roles, aCancellationToken: aCancellationToken);
+        public async Task<IHttpResult<IEnumerable<DiscordRoleDTO>>> GetGuildDiscordRoleList(string guildId, CancellationToken aCancellationToken = default)
+            => await GetAsync<IEnumerable<DiscordRoleDTO>>(_serviceName, SwarmBotApiRoutes.private_guilds_id_roles.Replace("{id}", guildId), aCancellationToken: aCancellationToken);
 
         public async Task<IHttpResult<string>> GetIsTester(string aId, CancellationToken aCancellationToken = default)
             => await GetAsync<string>(_serviceName, SwarmBotApiRoutes.private_testers.Replace("{id}", aId.ToString()), aCancellationToken: aCancellationToken);
