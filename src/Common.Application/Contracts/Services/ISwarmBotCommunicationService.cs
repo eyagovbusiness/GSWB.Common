@@ -42,10 +42,11 @@ namespace Common.Application.Contracts.Services
         /// <summary>
         /// Fetches if a given discord user Id has the tester role in the GuildSwarm Discord server.
         /// </summary>
-        /// <param name="aId">the dicscord user ID</param>
+        /// <param name="guildId">The discord guild ID, wuchi should be the official GuildSwarm discord server ID.</param>
+        /// <param name="userId">the dicscord user ID</param>
         /// <param name="aCancellationToken"></param>
         /// <returns>The discord user Id and 200 Success if it is a tester or 404 Error if no member with that id was found with the role tester.</returns>
-        public Task<IHttpResult<string>> GetIsTester(string aId, CancellationToken aCancellationToken = default);
+        public Task<IHttpResult<string>> GetIsTester(string guildId, string userId, CancellationToken aCancellationToken = default);
 
 
     }
