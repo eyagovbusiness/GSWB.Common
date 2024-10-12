@@ -14,7 +14,7 @@ namespace Common.Application.Contracts.Services
         /// Get the list of all <see cref="GuildDTO"/> of the user under the given discord user id.
         /// </summary>
         /// <returns>The list with all <see cref="GuildDTO"/> where both the bot and the provided discord user are in.</returns>
-        Task<IHttpResult<IEnumerable<GuildDTO>>> GetUserGuildList(string forwardingCookie, CancellationToken cancellationToken = default);
+        Task<IHttpResult<IEnumerable<GuildDTO>>> GetUserGuildList(string id, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Gets a list of Discord user roles from the SwarmBot API.
@@ -31,7 +31,7 @@ namespace Common.Application.Contracts.Services
         /// <param name="aDiscordUserId">The Discord user ID.</param>
         /// <param name="aCancellationToken">A token to monitor for cancellation requests.</param>
         /// <returns>A result containing the discord member's profile <see cref="DiscordProfileDTO"/>, otherwise an HTTP error.</returns>
-        Task<IHttpResult<DiscordProfileDTO>> GetMemberProfileFromId(string aDiscordUserId, CancellationToken aCancellationToken = default);
+        Task<IHttpResult<DiscordProfileDTO>> GetMemberProfileFromId(string guildId, string userId, CancellationToken aCancellationToken = default);
 
         /// <summary>
         /// Fetches the list of all guild server roles from Discord.
