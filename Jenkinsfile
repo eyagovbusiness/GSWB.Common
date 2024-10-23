@@ -1,4 +1,4 @@
-//@Library('standard-library') _
+@Library('standard-library') _
 
 pipeline {
     agent {
@@ -7,8 +7,7 @@ pipeline {
     environment {
         REGISTRY='registry.guildswarm.org'
         // TBD - ENVIRONMENT='Testportal' change to ENVIRONMENT='testportal' on software
-        ENVIRONMENT='testportal'
-        REPO="${env.BRANCH_NAME}"
+        ENVIRONMENT = "${env.BRANCH_NAME == 'integration' ? 'staging' : (env.BRANCH_NAME == 'main' || env.BRANCH_NAME == 'master') ? 'production' : env.BRANCH_NAME}"
         IMAGE='common'
     }
     stages {
@@ -22,9 +21,9 @@ pipeline {
                         | tar -cvf projectfiles.tar -T -
                     '''
                     try {
-                        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: "harbor-${REPO}", usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]) {
+                        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: "harbor-${ENVIRONMENT}", usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]) {
                             sh "docker login -u \'${DOCKER_USERNAME}' -p \'${DOCKER_PASSWORD}' ${REGISTRY}"
-                            sh "docker build . --build-arg ENVIRONMENT='${ENVIRONMENT}' -t ${REGISTRY}/${REPO}/${IMAGE}:${VERSION} -t ${REGISTRY}/${REPO}/${IMAGE}:latest"
+                            sh "docker build . --build-arg ENVIRONMENT='${ENVIRONMENT}' -t ${REGISTRY}/${ENVIRONMENT}/${IMAGE}:${VERSION} -t ${REGISTRY}/${ENVIRONMENT}/${IMAGE}:latest"
                             sh 'docker logout'
                         }
                     } finally {
@@ -37,7 +36,7 @@ pipeline {
             steps {
                 script {
                     if (env.CHANGE_ID == null) {
-                        sh "trivy image --quiet --exit-code 1 ${REGISTRY}/${REPO}/${IMAGE}:latest"
+                        sh "trivy image --quiet --exit-code 1 ${REGISTRY}/${ENVIRONMENT}/${IMAGE}:latest"
                     } else {
                         echo "Avoiding Scan in PR"
                     }
@@ -48,10 +47,10 @@ pipeline {
             steps {
                 script {
                     if (env.CHANGE_ID == null) {
-                        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: "harbor-${REPO}", usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]) {
+                        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: "harbor-${ENVIRONMENT}", usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD']]) {
                             sh "docker login -u \'${DOCKER_USERNAME}' -p \'${DOCKER_PASSWORD}' ${REGISTRY}"
-                            sh "docker push ${REGISTRY}/${REPO}/${IMAGE}:${VERSION}"
-                            sh "docker push ${REGISTRY}/${REPO}/${IMAGE}:latest"
+                            sh "docker push ${REGISTRY}/${ENVIRONMENT}/${IMAGE}:${VERSION}"
+                            sh "docker push ${REGISTRY}/${ENVIRONMENT}/${IMAGE}:latest"
                             sh 'docker logout'
                         }
                     } else {
@@ -63,8 +62,8 @@ pipeline {
         stage('Remove Docker Images') {
             steps {
                 script {
-                    sh "docker rmi ${REGISTRY}/${REPO}/${IMAGE}:${VERSION}"
-                    sh "docker rmi ${REGISTRY}/${REPO}/${IMAGE}:latest"
+                    sh "docker rmi ${REGISTRY}/${ENVIRONMENT}/${IMAGE}:${VERSION}"
+                    sh "docker rmi ${REGISTRY}/${ENVIRONMENT}/${IMAGE}:latest"
                 }
             }
         }
@@ -75,9 +74,9 @@ pipeline {
         }
         success {
             script {
-                build job: "backend/GSWB.ApiGateway/${REPO}", wait: false
-                build job: "backend/GSWB.SwarmBot/${REPO}", wait: false
-                build job: "backend/GSWB.Members/${REPO}", wait: false
+                build job: "backend/GSWB.ApiGateway/${ENVIRONMENT}", wait: false
+                build job: "backend/GSWB.SwarmBot/${ENVIRONMENT}", wait: false
+                build job: "backend/GSWB.Members/${ENVIRONMENT}", wait: false
             }
         }
         failure {
