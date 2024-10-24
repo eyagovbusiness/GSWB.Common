@@ -1,5 +1,4 @@
-﻿
-namespace SwarmBot.Infrastructure.Communication
+﻿namespace Common.Application.Contracts.Communication
 {
     public static class RoutingKeys
     {

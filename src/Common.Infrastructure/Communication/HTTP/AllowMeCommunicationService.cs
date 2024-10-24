@@ -1,5 +1,5 @@
-﻿using Common.Application.Contracts.Services;
-using Common.Infrastructure.Communication.ApiRoutes;
+﻿using Common.Application.Communication.Routing;
+using Common.Application.Contracts.Services;
 using TGF.CA.Infrastructure.Communication.Http;
 using TGF.CA.Infrastructure.Discovery;
 using TGF.Common.ROP.HttpResult;

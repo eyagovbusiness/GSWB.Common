@@ -1,7 +1,7 @@
-﻿using Common.Application.Contracts.Services;
+﻿using Common.Application.Communication.Routing;
+using Common.Application.Contracts.Services;
 using Common.Application.DTOs.Discord;
 using Common.Application.DTOs.Guilds;
-using Common.Infrastructure.Communication.ApiRoutes;
 using TGF.CA.Application.DTOs;
 using TGF.CA.Infrastructure.Communication.Http;
 using TGF.CA.Infrastructure.Discovery;

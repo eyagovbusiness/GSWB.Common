@@ -1,4 +1,4 @@
-﻿namespace Common.Infrastructure.Communication.ApiRoutes
+﻿namespace Common.Application.Communication.Routing
 {
     public struct EventsApiRoutes
     {
