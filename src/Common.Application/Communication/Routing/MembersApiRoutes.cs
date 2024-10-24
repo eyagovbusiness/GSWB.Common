@@ -1,4 +1,4 @@
-﻿namespace Common.Infrastructure.Communication.ApiRoutes
+﻿namespace Common.Application.Communication.Routing
 {
     public struct MembersApiRoutes
     {
@@ -23,8 +23,7 @@
         #endregion
 
         #region RoleEndpoints
-        public const string roles_discordSync = "roles/discord-sync";
-        public const string roles = "roles";
+        public const string guilds_roles = "guilds/{guildId}/roles";
         #endregion
 
         #region GuildEndpoints

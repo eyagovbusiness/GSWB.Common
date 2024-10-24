@@ -12,6 +12,8 @@ using TGF.CA.Infrastructure.Security.Secrets;
 using TGF.CA.Infrastructure.DB.PostgreSQL;
 using TGF.CA.Infrastructure;
 using Microsoft.Extensions.Logging;
+using TGF.CA.Application.Contracts.Services;
+using TGF.CA.Application.Specifications;
 
 namespace Common.Infrastructure
 {
@@ -42,6 +44,8 @@ namespace Common.Infrastructure
             aWebApplicationBuilder.Services.AddSingleton<IAuthorizationPolicyProvider, PermissionAuthorizationPolicyProvider<PermissionsEnum>>();
 
             await aWebApplicationBuilder.ConfigureCommonDataProtectionKeysAsync();
+
+            aWebApplicationBuilder.Services.AddScoped<IPagedListMapperService, PagedListMapperService>();
 
         }
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Infrastructure.Communication.ApiRoutes
+namespace Common.Application.Communication.Routing
 {
     public struct AllowMeApiRoutes
     {
