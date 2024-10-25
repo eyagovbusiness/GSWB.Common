@@ -12,6 +12,7 @@
         public const string private_guilds_members_roles = "private/guilds/{guildId}/members/{userId}/roles";
 
         public const string private_guilds_roles = "private/guilds/{guildId}/roles";
+        public const string private_guilds_roles_createGuildSwarmAdmin = "private/guilds/{guildId}/roles/create-guildswarm-admin";
         public const string private_guilds_roles_name = "private/guilds/{guildId}/roles/{name}";
         public const string private_guilds_role = "private/guilds/{guildId}/roles/{roleId}";
         public const string private_roles_assign = "private/guilds/{guildId}/roles/{roleId}/assign";

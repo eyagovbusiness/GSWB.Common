@@ -20,7 +20,7 @@ namespace Common.Application.Contracts.Services
         /// Gets a list of Discord user roles from the SwarmBot API.
         /// </summary>
         /// <param name="guildId">The Discord guild ID.</param>
-        /// /// <param name="guildId">The Discord user ID.</param>
+        /// <param name="userId">The Discord user ID.</param>
         /// <param name="aCancellationToken">A token to monitor for cancellation requests.</param>
         /// <returns>A result containing a list of Discord roles IF ANY, otherwise an HTTP error.</returns>
         Task<IHttpResult<IEnumerable<DiscordRoleDTO>>> GetMemberRoleList(string guildId, string userId, CancellationToken aCancellationToken = default);
@@ -28,7 +28,8 @@ namespace Common.Application.Contracts.Services
         /// <summary>
         /// Gets the discord member nickname in the guild's server via http request against the SwarmBot API.
         /// </summary>
-        /// <param name="aDiscordUserId">The Discord user ID.</param>
+        /// <param name="guildId">The Discord guild ID.</param>
+        /// <param name="userId">The Discord user ID.</param>
         /// <param name="aCancellationToken">A token to monitor for cancellation requests.</param>
         /// <returns>A result containing the discord member's profile <see cref="DiscordProfileDTO"/>, otherwise an HTTP error.</returns>
         Task<IHttpResult<DiscordProfileDTO>> GetMemberProfileFromId(string guildId, string userId, CancellationToken aCancellationToken = default);
@@ -38,6 +39,14 @@ namespace Common.Application.Contracts.Services
         /// </summary>
         /// <returns>List of roles from Discord's server.</returns>
         Task<IHttpResult<IEnumerable<DiscordRoleDTO>>> GetGuildDiscordRoleList(string guildId, CancellationToken aCancellationToken = default);
+
+        /// <summary>
+        /// Creates the GuildSwarmAdmin role in the discord Guild and returns the list of all roles after adding this new one.
+        /// </summary>
+        /// <param name="guildId"></param>
+        /// <param name="aCancellationToken"></param>
+        /// <returns>List of all guild roles including the GuildSwarmAdmin role after being added.</returns>
+        Task<IHttpResult<IEnumerable<DiscordRoleDTO>>> CreateGuildSwarmAdminRole(string guildId, CancellationToken aCancellationToken = default);
 
         /// <summary>
         /// Fetches if a given discord user Id has the tester role in the GuildSwarm Discord server.
