@@ -4,6 +4,9 @@ using System.Collections.Immutable;
 
 namespace Common.Application.DTOs.Members
 {
+    /// <summary>
+    /// Detail DTO for Member entitiy including <see cref="RoleDTO"/> list and additional member properties not present in the basic <see cref="MemberDTO"/>.
+    /// </summary>
     public record MemberDetailDTO(
         Guid Id,
         string GuildId,
@@ -13,6 +16,5 @@ namespace Common.Application.DTOs.Members
         string? SpectrumCommunityMoniker,
         bool IsVerified,
         MemberStatusEnum Status,
-        ImmutableArray<RoleDTO> Roles)
-    : MemberDTO(Id, GuildId, DiscordGuildDisplayName, GameHandle, Status, Roles);
+        ImmutableArray<RoleDTO> Roles);
 }
