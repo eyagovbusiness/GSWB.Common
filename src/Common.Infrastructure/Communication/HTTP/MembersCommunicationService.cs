@@ -4,7 +4,7 @@ using Common.Application.DTOs.Auth;
 using Common.Application.DTOs.Members;
 using Common.Domain.ValueObjects;
 using TGF.CA.Application.DTOs;
-using TGF.CA.Infrastructure.Communication.Http;
+using TGF.CA.Infrastructure.Comm.Http;
 using TGF.CA.Infrastructure.Discovery;
 using TGF.Common.ROP.HttpResult;
 

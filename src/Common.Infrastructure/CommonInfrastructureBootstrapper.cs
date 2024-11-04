@@ -6,14 +6,14 @@ using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using TGF.CA.Infrastructure.Discovery;
-using TGF.CA.Infrastructure.Security.Identity;
-using TGF.CA.Infrastructure.Security.Identity.Authorization.Permissions;
-using TGF.CA.Infrastructure.Security.Secrets;
 using TGF.CA.Infrastructure.DB.PostgreSQL;
 using TGF.CA.Infrastructure;
 using Microsoft.Extensions.Logging;
 using TGF.CA.Application.Contracts.Services;
 using TGF.CA.Application.Specifications;
+using TGF.CA.Infrastructure.Identity;
+using TGF.CA.Infrastructure.Secrets.Vault;
+using TGF.CA.Infrastructure.Identity.Authorization.Permissions;
 
 namespace Common.Infrastructure
 {

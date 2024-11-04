@@ -1,6 +1,6 @@
 ﻿using Common.Application.Communication.Routing;
 using Common.Application.Contracts.Services;
-using TGF.CA.Infrastructure.Communication.Http;
+using TGF.CA.Infrastructure.Comm.Http;
 using TGF.CA.Infrastructure.Discovery;
 using TGF.Common.ROP.HttpResult;
 

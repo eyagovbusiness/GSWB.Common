@@ -2,8 +2,7 @@
 using Common.Application.Contracts.Services;
 using Common.Application.DTOs.Discord;
 using Common.Application.DTOs.Guilds;
-using TGF.CA.Application.DTOs;
-using TGF.CA.Infrastructure.Communication.Http;
+using TGF.CA.Infrastructure.Comm.Http;
 using TGF.CA.Infrastructure.Discovery;
 using TGF.Common.ROP.HttpResult;
 
