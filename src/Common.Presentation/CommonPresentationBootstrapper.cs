@@ -1,10 +1,7 @@
-﻿using Common.Presentation.Validation;
-using FluentValidation;
-using HealthChecks.UI.Client;
+﻿using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using Microsoft.Extensions.Hosting;
-using TGF.CA.Application;
+using TGF.CA.Application.Contracts.Routing;
 
 namespace Common.Presentation
 {
@@ -18,7 +15,6 @@ namespace Common.Presentation
         /// </summary>
         public static WebApplicationBuilder ConfigureCommonPresentation(this WebApplicationBuilder aWebApplicationBuilder)
         {
-            aWebApplicationBuilder.Services.AddValidatorsFromAssemblyContaining<PaginationValidator>();
             return aWebApplicationBuilder;
         }
 

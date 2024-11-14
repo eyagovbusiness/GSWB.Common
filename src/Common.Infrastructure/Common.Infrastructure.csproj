@@ -7,12 +7,22 @@
     <DockerBuild>false</DockerBuild>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection.EntityFrameworkCore" Version="8.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
+  </ItemGroup>
+
   <ItemGroup Condition="'$(DockerBuild)'=='false'">
     <ProjectReference Include="..\Common.Application\Common.Application.csproj" />
     <ProjectReference Include="..\..\..\TheGoodFramework\src\CleanArchitecture\Infrastructure\Comm\TGF.CA.Infrastructure.Comm\TGF.CA.Infrastructure.Comm.csproj" />
     <ProjectReference Include="..\..\..\TheGoodFramework\src\CleanArchitecture\Infrastructure\Persistence\DB\TGF.CA.Infrastructure.DB.PostgreSQL\TGF.CA.Infrastructure.DB.PostgreSQL.csproj" />
     <ProjectReference Include="..\..\..\TheGoodFramework\src\CleanArchitecture\Infrastructure\Security\TGF.CA.Infrastructure.Identity\TGF.CA.Infrastructure.Identity.csproj" />
     <ProjectReference Include="..\..\..\TheGoodFramework\src\CleanArchitecture\Infrastructure\Security\TGF.CA.Infrastructure.Secrets\TGF.CA.Infrastructure.Secrets.csproj" />
+    <ProjectReference Include="..\..\..\TheGoodFramework\src\CleanArchitecture\Infrastructure\Persistence\DB\TGF.CA.Infrastructure.DB\TGF.CA.Infrastructure.DB.csproj" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(DockerBuild)'=='true'">
@@ -21,6 +31,7 @@
     <PackageReference Include="TGF.CA.Infrastructure.DB.PostgreSQL" Version="1.0.0" />
     <PackageReference Include="TGF.CA.Infrastructure.Identity" Version="1.0.0" />
     <PackageReference Include="TGF.CA.Infrastructure.Secrets" Version="1.0.0" />
+    <PackageReference Include="TGF.CA.Infrastructure.DB" Version="1.0.0" />
   </ItemGroup>
-  
+ 
 </Project>

@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.0" />
-    <FrameworkReference Include="Microsoft.AspNetCore.App" Version="8.0.0"/>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(DockerBuild)'=='false'">

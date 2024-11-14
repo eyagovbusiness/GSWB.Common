@@ -11,19 +11,19 @@ namespace Common.Application.Contracts.Services
     public interface IMembersCommunicationService
     {
 
-        Task<IHttpResult<MemberDTO>> GetExistingMember(ulong aId, CancellationToken aCancellationToken = default);
+        Task<IHttpResult<MemberDetailDTO>> GetExistingMember(MemberKey memberKey, CancellationToken aCancellationToken = default);
 
-        Task<IHttpResult<IEnumerable<MemberDetailDTO>>> GetMembersByIdList(IEnumerable<Guid> aMemberIdList, string aAccessToken, CancellationToken aCancellationToken = default);
+        Task<IHttpResult<IEnumerable<MemberDetailDTO>>> GetMembersByIdList(IEnumerable<MemberKey> aMemberKeyList, string aAccessToken, CancellationToken aCancellationToken = default);
 
-        Task<IHttpResult<MemberDetailDTO>> SignUpNewMember(SignUpDataDTO? aSignUpDataDTO, DiscordCookieUserInfo aDiscordCookieUserInfo, CancellationToken aCancellationToken = default);
+        Task<IHttpResult<MemberDetailDTO>> SignUpNewMember(SignUpDataDTO? aSignUpDataDTO, DiscordCookieUserInfo aDiscordCookieUserInfo, string guildId, CancellationToken aCancellationToken = default);
 
         /// <summary>
         /// Gets the member's permissions via http request against the Members API.
         /// </summary>
-        /// <param name="aMemberId">The Member Id.</param>
+        /// <param name="memberKey">The Member composite key.</param>
         /// <param name="aCancellationToken">A token to monitor for cancellation requests.</param>
         /// <returns>An int enum flags containing the member's permissions <see cref="PermissionsEnum"/>, otherwise an HTTP error.</returns>
-        Task<IHttpResult<PermissionsEnum>> GetMemberPermissions(Guid aMemberId, CancellationToken aCancellationToken = default);
+        Task<IHttpResult<PermissionsEnum>> GetMemberPermissions(MemberKey memberKey, CancellationToken aCancellationToken = default);
 
     }
 }

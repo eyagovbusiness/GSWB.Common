@@ -37,7 +37,11 @@ pipeline {
             steps {
                 script {
                     if (env.CHANGE_ID == null) {
-                        sh "trivy image --quiet --exit-code 1 ${REGISTRY}/${ENVIRONMENT}/${IMAGE}:latest"
+                        // Trivy can't download the database from the internet, so we need to provide it. 
+                        // Solution: https://github.com/aquasecurity/trivy/discussions/7668
+                        sh "trivy image --db-repository public.ecr.aws/aquasecurity/trivy-db \
+                                --java-db-repository public.ecr.aws/aquasecurity/trivy-java-db \
+                                --exit-code 1 --quiet ${REGISTRY}/${ENVIRONMENT}/${IMAGE}:latest"
                     } else {
                         echo "Avoiding Scan in PR"
                     }
@@ -75,9 +79,9 @@ pipeline {
         }
         success {
             script {
-                build job: "backend/GSWB.ApiGateway/${ENVIRONMENT_JOB}", wait: false
-                build job: "backend/GSWB.SwarmBot/${ENVIRONMENT_JOB}", wait: false
-                build job: "backend/GSWB.Members/${ENVIRONMENT_JOB}", wait: false
+                build job: "backend/GSWB.ApiGateway/${ENVIRONMENT}", wait: false
+                build job: "backend/GSWB.SwarmBot/${ENVIRONMENT}", wait: false
+                build job: "backend/GSWB.Members/${ENVIRONMENT}", wait: false
             }
         }
         failure {
