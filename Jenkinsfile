@@ -79,9 +79,9 @@ pipeline {
         }
         success {
             script {
-                build job: "backend/GSWB.ApiGateway/${ENVIRONMENT}", wait: false
-                build job: "backend/GSWB.SwarmBot/${ENVIRONMENT}", wait: false
-                build job: "backend/GSWB.Members/${ENVIRONMENT}", wait: false
+                build job: "backend/GSWB.ApiGateway/${ENVIRONMENT_JOB}", wait: false
+                build job: "backend/GSWB.SwarmBot/${ENVIRONMENT_JOB}", wait: false
+                build job: "backend/GSWB.Members/${ENVIRONMENT_JOB}", wait: false
             }
         }
         failure {
