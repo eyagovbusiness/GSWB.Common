@@ -1,7 +1,8 @@
-﻿using TGF.CA.Application.Contracts.Communication;
+﻿using Common.Domain.ValueObjects;
+using TGF.CA.Application.Contracts.Communication;
 
 namespace Common.Application.Contracts.Communication.Messages
 {
-    public record MemberTokenRevoked(Guid[] MemberIdList)
+    public record MemberTokenRevoked(MemberKey[] MemberIdList)
         : IIntegrationMessageContent;
 }

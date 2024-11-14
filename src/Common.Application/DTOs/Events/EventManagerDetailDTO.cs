@@ -1,5 +1,4 @@
-﻿
-using Common.Application.DTOs.Members;
+﻿using Common.Application.DTOs.Members;
 
 namespace Common.Application.DTOs.Events
 {

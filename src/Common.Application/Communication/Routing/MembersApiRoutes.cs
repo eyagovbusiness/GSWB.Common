@@ -16,10 +16,9 @@
         #endregion
 
         #region PrivateEndpoints
-        public const string private_members = "private/members";
-        public const string private_members_id = "private/members/{id}";
-        public const string private_members_userId_guildId = "private/members/{userId}/{guildId}";
-        public const string private_members_permissions = "private/members/{id}/permissions";
+        public const string private_members = "private/members";//needs guild id in the route
+        public const string private_members_key = "private/guilds/{guildId}/members/{userId}";
+        public const string private_members_permissions = "private/guilds/{guildId}/members/{userId}/permissions";
         #endregion
 
         #region RoleEndpoints

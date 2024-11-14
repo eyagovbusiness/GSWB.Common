@@ -8,7 +8,7 @@ namespace Common.Application.DTOs.Members
     /// Detail DTO for Member entitiy including <see cref="RoleDTO"/> list and additional member properties not present in the basic <see cref="MemberDTO"/>.
     /// </summary>
     public record MemberDetailDTO(
-        Guid Id,
+        string UserId,
         string GuildId,
         string DiscordGuildDisplayName,
         string AvatarUrl,
