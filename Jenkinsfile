@@ -7,6 +7,7 @@ pipeline {
     environment {
         REGISTRY='registry.guildswarm.org'
         // TBD - ENVIRONMENT='Testportal' change to ENVIRONMENT='testportal' on software
+        ENVIRONMENT_JOB = "${env.BRANCH_NAME}"
         ENVIRONMENT = "${env.BRANCH_NAME == 'integration' ? 'staging' : (env.BRANCH_NAME == 'main' || env.BRANCH_NAME == 'master') ? 'production' : env.BRANCH_NAME}"
         IMAGE='common'
     }
