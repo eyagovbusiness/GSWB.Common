@@ -1,6 +1,6 @@
 ﻿namespace Common.Application.DTOs.Members
 {
-    public record MemberProfileUpdateDTO(
+    public record MemberGameProfileUpdateDTO(
         string? GameHandle,
         string? SpectrumCommunityMoniker);
 }
