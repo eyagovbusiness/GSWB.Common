@@ -1,12 +1,26 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Common.Domain.ValueObjects
 {
-    public record MemberKey([property: Required] ulong GuildId, [property: Required] ulong UserId)
+    public record MemberKey
     {
-        // Additional constructor to accept string parameters
-        public MemberKey([param: Required] string guildId, [param: Required] string userId)
+        [Required]
+        public ulong GuildId { get; init; }
+
+        [Required]
+        public ulong UserId { get; init; }
+
+        // Constructor that accepts ulong parameters
+        [JsonConstructor]
+        public MemberKey(ulong guildId, ulong userId)
+        {
+            GuildId = guildId;
+            UserId = userId;
+        }
+
+        // Constructor that accepts string parameters
+        public MemberKey(string guildId, string userId)
             : this(ConvertToUlong(guildId), ConvertToUlong(userId))
         {
         }
@@ -19,5 +33,4 @@ namespace Common.Domain.ValueObjects
             return result;
         }
     }
-
 }
