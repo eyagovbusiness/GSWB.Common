@@ -1,4 +1,4 @@
-﻿using Common.Domain.Errors;
+﻿using Common.Domain.Errors.Validation;
 using FluentValidation;
 using TGF.Common.ROP.Errors;
 

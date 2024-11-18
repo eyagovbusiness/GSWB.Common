@@ -1,6 +1,6 @@
 ﻿using TGF.Common.ROP.Errors;
 
-namespace Common.Domain.Errors
+namespace Common.Domain.Errors.Validation
 {
     public static partial class DomainErrors
     {
