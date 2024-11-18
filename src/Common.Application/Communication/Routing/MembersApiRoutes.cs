@@ -10,9 +10,13 @@
         #endregion
 
         #region MembersEndpoints
-        public const string members = "members";
-        public const string members_getByIds = "members/get-by-ids";
-        public const string members_count = "members/count";
+        public const string guilds_mine_members = "guilds/mine/members";
+        public const string guilds_mine_members_getByIds = "guilds/mine/members/get-by-ids";
+        public const string guilds_mine_members_count = "guilds/mine/members/count";
+        #endregion
+
+        #region RoleEndpoints
+        public const string guilds_mine_roles = "guilds/mine/roles";
         #endregion
 
         #region PrivateEndpoints
@@ -21,12 +25,5 @@
         public const string private_members_permissions = "private/guilds/{guildId}/members/{userId}/permissions";
         #endregion
 
-        #region RoleEndpoints
-        public const string guilds_roles = "guilds/{guildId}/roles";
-        #endregion
-
-        #region GuildEndpoints
-
-        #endregion
     }
 }

@@ -25,7 +25,7 @@ namespace Common.Infrastructure.Communication.HTTP
         );
 
         public async Task<IHttpResult<IEnumerable<MemberDetailDTO>>> GetMembersByIdList(IEnumerable<MemberKey> aMemberKeyList, string aAccessToken, CancellationToken aCancellationToken = default)
-        => await PostAsync<IEnumerable<MemberKey>,IEnumerable<MemberDetailDTO>>(_serviceName, MembersApiRoutes.members_getByIds, aMemberKeyList, [new(AuthenticationForwardingType.JWT, aAccessToken)], aCancellationToken);
+        => await PostAsync<IEnumerable<MemberKey>,IEnumerable<MemberDetailDTO>>(_serviceName, MembersApiRoutes.guilds_mine_members_getByIds, aMemberKeyList, [new(AuthenticationForwardingType.JWT, aAccessToken)], aCancellationToken);
 
         public async Task<IHttpResult<MemberDetailDTO>> SignUpNewMember(SignUpDataDTO? aSignUpDataDTO, DiscordCookieUserInfo aDiscordCookieUserInfo, string guildId, CancellationToken aCancellationToken = default)
         => await PutAsync<CreateMemberDTO, MemberDetailDTO>(_serviceName, MembersApiRoutes.private_members, new CreateMemberDTO(aSignUpDataDTO, aDiscordCookieUserInfo, guildId), aCancellationToken: aCancellationToken);
